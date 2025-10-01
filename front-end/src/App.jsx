@@ -7,19 +7,22 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import UserDashboard from "./Pages/UserDashboard";
 import AdminDashboard from "./Pages/AdminDashboard"
+import MainLayout from "./components/Layouts/MainLayout";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/user-dashboard' element={<UserDashboard />} />
-        <Route path='/admin-dashboard' element={<AdminDashboard />} />
-      </Routes>
+      <MainLayout>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/user-dashboard' element={<UserDashboard />} />
+          <Route path='/admin-dashboard' element={<AdminDashboard />} />
+        </Routes>
+      </MainLayout>
     </Router>
   )
 }

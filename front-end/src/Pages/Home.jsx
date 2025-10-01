@@ -1,5 +1,7 @@
+import MainLayouts from "../components/Layouts/MainLayout"
+
 export default function Home(){
     return (
-        <h1>HomePage</h1>
+        <h1>Home Page</h1>
     )
 }
