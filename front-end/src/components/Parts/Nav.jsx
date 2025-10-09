@@ -1,9 +1,11 @@
-// Navbar.jsx
+// components/Navbar.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <nav className={darkMode ? "bg-gray-900 text-white px-6 py-4 shadow-md" : "bg-white text-gray-900 px-6 py-4 shadow-md"}>
@@ -19,7 +21,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           <Link to="/login" className="ml-4 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full shadow-lg hover:scale-105 hover:from-indigo-600 hover:to-purple-600 transition-all duration-200">Login</Link>
           <Link to="/register" className="ml-2 px-6 py-2 bg-white text-indigo-500 rounded-full shadow-lg border border-indigo-200 hover:bg-indigo-50 hover:scale-105 transition-all duration-200">Register</Link>
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={toggleDarkMode}
             className={darkMode ? "ml-4 p-2 rounded-full border border-indigo-400 bg-gray-800 hover:bg-gray-700 transition" : "ml-4 p-2 rounded-full border border-indigo-400 bg-white hover:bg-indigo-50 transition"}
             aria-label="Toggle dark mode"
           >
@@ -51,7 +53,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           <Link to="/login" className="px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full shadow-lg hover:scale-105 hover:from-indigo-600 hover:to-purple-600 transition-all duration-200">Login</Link>
           <Link to="/register" className="px-6 py-2 bg-white text-indigo-500 rounded-full shadow-lg border border-indigo-200 hover:bg-indigo-50 hover:scale-105 transition-all duration-200">Register</Link>
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={toggleDarkMode}
             className={darkMode ? "mt-2 p-2 rounded-full border border-indigo-400 bg-gray-800 hover:bg-gray-700 transition self-start" : "mt-2 p-2 rounded-full border border-indigo-400 bg-white hover:bg-indigo-50 transition self-start"}
             aria-label="Toggle dark mode"
           >
